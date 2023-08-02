@@ -21,6 +21,7 @@ import { SpinnerPages } from '@/components'
 
 const Home = lazy(() => import('@/pages/Home'))
 const Login = lazy(() => import('@/pages/Login'))
+const Logout = lazy(() => import('@/pages/Logout'))
 
 function App(): JSX.Element {
   return (
@@ -31,6 +32,7 @@ function App(): JSX.Element {
             <Routes>
               <Route path={ROUTES.home} element={<Home />} />
               <Route path={ROUTES.login} element={<Login />} />
+              <Route path={ROUTES.logout} element={<Logout />} />
             </Routes>
           </Suspense>
         </LayoutMain>

@@ -13,14 +13,14 @@ export default function FormLogin() {
     }
     const payload: User = {
       user,
-      password,
+      pass: password,
     }
     Autenticate(payload)
   }
 
   return (
     <>
-      <form className="w-full">
+      <div className="w-full">
         <div className="mb-6">
           <label
             htmlFor="email"
@@ -65,7 +65,7 @@ export default function FormLogin() {
         >
           Inicia sesion
         </button>
-      </form>
+      </div>
     </>
   )
 }

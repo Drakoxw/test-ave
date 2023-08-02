@@ -1,1 +1,1 @@
-export type User = { user: string; password: string }
+export type User = { user: string; pass: string }

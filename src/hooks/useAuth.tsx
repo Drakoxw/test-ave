@@ -19,21 +19,18 @@ export function useAuth() {
   const location = useLocation()
   const navigate = useNavigate()
 
-  console.log(location.pathname)
-
   const Autenticate = async (payload: User) => {
     if (location.pathname === ROUTES.login) {
       LoginUser(payload).then((token) => {
         action?.setToken(token)
-        return navigate('/')
+        return navigate(ROUTES.home)
       })
+    } else {
+        LogoutUser(payload).then((token) => {
+            action?.setToken(token)
+            return navigate(ROUTES.home)
+        }) 
     }
-
-    LogoutUser(payload).then((token) => {
-        action?.setToken(token)
-        return navigate('/')
-    }) 
-
   }
 
   return { Autenticate }
