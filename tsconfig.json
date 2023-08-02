@@ -19,12 +19,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "types": ["node"],
     "paths": {
-      "@Components/*": ["./src/components/*"],
-      "@Interfaces/*": ["./src/core/interfaces/*"],
-      "@Contants/*": ["./src/core/contants/*"],
-      "@Services/*": ["./src/services/*"],
-      "@Hooks/*": ["./src/hooks/*"],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"],
