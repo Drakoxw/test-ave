@@ -1,31 +1,31 @@
-import create from 'zustand';
-import { persist } from 'zustand/middleware';
+import create from 'zustand'
+import { persist } from 'zustand/middleware'
 
 type InitialState = {
-  total: number;
-};
+  token: string
+}
 
-type ActionsMenuTotals = {
+type ActionsToken = {
   actions?: {
-    setTotal: (total: number) => void;
-    setInitialState: () => void;
-  };
-};
+    setToken: (token: string) => void
+    setInitialState: () => void
+  }
+}
 
-type Store = InitialState & ActionsMenuTotals;
+type Store = InitialState & ActionsToken
 
-export type { Store, InitialState };
+export type { Store, InitialState }
 
 const initialState: InitialState = {
-  total: 0,
-};
+  token: '',
+}
 
 const storage = {
   name: 'app-state',
   partialize: (state: Store) => {
-    return state.total;
+    return state.token
   },
-};
+}
 
 // aparece deprecado pero la documnetacion asi usa el Store
 const useStore = create<Store>()(
@@ -33,23 +33,24 @@ const useStore = create<Store>()(
     return {
       ...initialState,
       actions: {
-        setTotal: (total: number) => {
+        setToken: (token: string) => {
           return set((state: Store) => ({
-            ...state, total,
-          }));
+            ...state,
+            token,
+          }))
         },
         setInitialState: () => set(() => initialState),
       },
-    };
+    }
   }, storage)
-);
+)
 
-export const useTotalStore = () => {
+export const useStoreApp = () => {
   return useStore((state) => ({
-    totalNovelties: state.total,
-  }));
-};
+    token: state.token,
+  }))
+}
 
 export const useActions = () => {
-  return useStore((state) => state.actions);
-};
+  return useStore((state) => state.actions)
+}
