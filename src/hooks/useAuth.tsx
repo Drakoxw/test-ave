@@ -21,15 +21,19 @@ export function useAuth() {
 
   const Autenticate = async (payload: User) => {
     if (location.pathname === ROUTES.login) {
-      LoginUser(payload).then((token) => {
-        action?.setToken(token)
-        return navigate(ROUTES.home)
-      })
+      LoginUser(payload)
+        .then((token) => {
+          action?.setToken(token)
+          return navigate(ROUTES.home)
+        })
+        .catch(() => alert('Usuario o contraseña incorrectos'))
     } else {
-        LogoutUser(payload).then((token) => {
-            action?.setToken(token)
-            return navigate(ROUTES.home)
-        }) 
+      LogoutUser(payload)
+        .then((token) => {
+          action?.setToken(token)
+          return navigate(ROUTES.home)
+        })
+        .catch(() => alert('Error, prueba otro usuario y contraseña'))
     }
   }
 
