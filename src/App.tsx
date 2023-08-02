@@ -6,6 +6,7 @@ import { LayoutMain } from '@/core/Layouts';
 import { SpinnerPages } from '@/components';
 
 const Home = lazy(() => import('@/pages/Home'));
+const Login = lazy(() => import('@/pages/Login'));
 
 function App(): JSX.Element {
   return (
@@ -14,6 +15,7 @@ function App(): JSX.Element {
         <Suspense fallback={<SpinnerPages />}>
           <Routes>
             <Route path={ROUTES.home} element={<Home />} />
+            <Route path={ROUTES.login} element={<Login />} />
           </Routes>
         </Suspense>
       </LayoutMain>

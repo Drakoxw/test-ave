@@ -15,7 +15,7 @@ export default function Main() {
   
   return (
     <>
-      <h1 className="text-4xl text-center font-bold">Hola mundo</h1>
+      <h1 className="title-h1">Hola mundo</h1>
 
       <div className="w-full">{<UserList users={users} />}</div>
     </>
